@@ -1,0 +1,16 @@
+export { default as GetShipment } from "./get-shipment";
+export { default as CompleteShipment } from "./complete-shipment";
+export { default as StartShipment } from "./start-shipment";
+export { default as Form } from "./form";
+export { default as Footer } from "./footer";
+export { default as Services } from "./services";
+export { default as Profile } from "./profile";
+export { default as Navbar } from "./navbar";
+export { default as Loader } from "./loader";
+export { default as Table } from "./table";
+export { default as Fot1 } from "./SVG/Fot1";
+export { default as Fot2 } from "./SVG/Fot2";
+export { default as Nav1 } from "./SVG/Nav1";
+export { default as Nav2 } from "./SVG/Nav2";
+export { default as Nav3 } from "./SVG/Nav3";
+export { default as Str1 } from "./SVG/Str1";
