@@ -43,20 +43,20 @@ const CompleteShipment = ({
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden transform transition-all">
+      <div className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">
+            <h3 className="text-lg font-semibold text-white">
               Complete Shipment
             </h3>
             <button
               onClick={() => setCompleteModal(false)}
-              className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+              className="p-1 rounded-md hover:bg-gray-700 transition-colors"
               aria-label="Close"
             >
               <svg
-                className="w-6 h-6 text-gray-500"
+                className="w-6 h-6 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -71,7 +71,7 @@ const CompleteShipment = ({
               </svg>
             </button>
           </div>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-400">
             Mark a shipment as completed by providing the details below
           </p>
         </div>
@@ -87,7 +87,7 @@ const CompleteShipment = ({
             <div className="mb-4">
               <label
                 htmlFor="receiver"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-300 mb-1"
               >
                 Receiver Address
               </label>
@@ -102,7 +102,7 @@ const CompleteShipment = ({
                     receiver: e.target.value,
                   })
                 }
-                className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-2 text-gray-700 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
                 required
               />
             </div>
@@ -110,7 +110,7 @@ const CompleteShipment = ({
             <div className="mb-6">
               <label
                 htmlFor="shipmentId"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-300 mb-1"
               >
                 Shipment ID
               </label>
@@ -126,7 +126,7 @@ const CompleteShipment = ({
                     index: parseInt(e.target.value) || 0,
                   })
                 }
-                className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-2 text-gray-700 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
                 required
               />
             </div>
@@ -135,7 +135,7 @@ const CompleteShipment = ({
               <button
                 type="button"
                 onClick={() => setCompleteModal(false)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
                 disabled={isSubmitting}
               >
                 Cancel

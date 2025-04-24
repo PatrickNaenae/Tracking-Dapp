@@ -90,6 +90,10 @@ contract Tracking {
         uint256 _price
     ) external payable {
         require(msg.value >= _price, "Amount not enough");
+        require(
+            _pickupTime > block.timestamp,
+            "Pickup time must be in the future"
+        );
 
         // Create the shipment for sender-specific tracking
         Shipment memory shipment = Shipment(

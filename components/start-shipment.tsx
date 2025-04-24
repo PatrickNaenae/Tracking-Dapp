@@ -44,22 +44,22 @@ const StartShipment = ({
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden">
+      <div className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-semibold text-gray-900">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               Start New Shipment
             </h3>
             <button
               onClick={() => setStartModal(false)}
-              className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+              className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Close"
             >
               <Str1 />
             </button>
           </div>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             Begin tracking a shipment by entering the details below
           </p>
         </div>
@@ -76,7 +76,7 @@ const StartShipment = ({
               <div>
                 <label
                   htmlFor="receiver"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                 >
                   Receiver Address
                 </label>
@@ -84,7 +84,7 @@ const StartShipment = ({
                   id="receiver"
                   type="text"
                   placeholder="Enter receiver's wallet address (0x...)"
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-2 text-gray-700 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
                   value={getProduct.receiver}
                   onChange={(e) =>
                     setGetProduct({ ...getProduct, receiver: e.target.value })
@@ -96,7 +96,7 @@ const StartShipment = ({
               <div>
                 <label
                   htmlFor="shipmentIndex"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                 >
                   Shipment Index
                 </label>
@@ -105,7 +105,7 @@ const StartShipment = ({
                   type="number"
                   min="0"
                   placeholder="Enter shipment index"
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-2 text-gray-700 dark:text-white bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
                   value={getProduct.index}
                   onChange={(e) =>
                     setGetProduct({
@@ -122,7 +122,7 @@ const StartShipment = ({
               <button
                 type="button"
                 onClick={() => setStartModal(false)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
                 disabled={isSubmitting}
               >
                 Cancel

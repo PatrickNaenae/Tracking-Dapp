@@ -51,15 +51,15 @@ const Profile = ({
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden transform transition-all">
+      <div className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden">
         {/* Close Button */}
         <button
           onClick={() => setOpenProfile(false)}
-          className="absolute top-4 right-4 p-1 rounded-full hover:bg-gray-100 transition-colors"
+          className="absolute top-4 right-4 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           aria-label="Close profile"
         >
           <svg
-            className="w-6 h-6 text-gray-500"
+            className="w-6 h-6 text-gray-500 dark:text-gray-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -83,29 +83,35 @@ const Profile = ({
                 src={avatar}
                 alt="User Avatar"
                 fill
-                className="rounded-full object-cover border-4 border-indigo-100"
+                className="rounded-full object-cover border-4 border-indigo-100 dark:border-indigo-700"
               />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800">Welcome Trader</h2>
-            <p className="text-gray-600 mt-1">{currentUser}</p>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+              Welcome Trader
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400 mt-1">
+              {currentUser}
+            </p>
           </div>
 
           {/* Stats Section */}
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-gray-50 p-4 rounded-lg text-center">
-              <p className="text-sm font-medium text-gray-500">Balance</p>
-              <p className="text-xl font-semibold text-gray-800 mt-1">
-                345 ETH
+            <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center">
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-300">
+                Balance
+              </p>
+              <p className="text-xl font-semibold text-gray-800 dark:text-white mt-1">
+                2,000,000 ETH
               </p>
             </div>
-            <div className="bg-gray-50 p-4 rounded-lg text-center">
-              <p className="text-sm font-medium text-gray-500">
+            <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg text-center">
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-300">
                 Total Shipments
               </p>
               {isLoading ? (
-                <div className="animate-pulse h-7 w-full bg-gray-200 rounded mt-1" />
+                <div className="animate-pulse h-7 w-full bg-gray-200 dark:bg-gray-600 rounded mt-1" />
               ) : (
-                <p className="text-xl font-semibold text-gray-800 mt-1">
+                <p className="text-xl font-semibold text-gray-800 dark:text-white mt-1">
                   {count !== null ? count.toString() : "Loading..."}
                 </p>
               )}
@@ -122,7 +128,7 @@ const Profile = ({
             </Link>
             <Link
               href="#"
-              className="px-4 py-2.5 border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium rounded-lg text-center transition-colors"
+              className="px-4 py-2.5 border border-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg text-center transition-colors"
             >
               Account Settings
             </Link>

@@ -10,11 +10,11 @@ interface TableProps {
 
 const Table = ({ setCreateShipmentModal, allShipmentData }: TableProps) => {
   return (
-    <div className="max-w-screen-2xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div className="max-w-screen-2xl mx-auto px-4 py-12 sm:px-6 lg:px-8 bg-gray-900">
       <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-8">
         <div className="max-w-2xl">
-          <h3 className="text-2xl font-bold text-white">Shipment Tracking</h3>
-          <p className="mt-2 text-white">
+          <h3 className="text-2xl font-bold text-white">Track Shipment</h3>
+          <p className="mt-2 text-gray-400">
             Manage and monitor all your shipments in one place
           </p>
         </div>
@@ -38,10 +38,10 @@ const Table = ({ setCreateShipmentModal, allShipmentData }: TableProps) => {
         </button>
       </div>
 
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-gray-900 shadow rounded-lg overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+          <table className="min-w-full divide-y divide-gray-700">
+            <thead className="bg-gray-800">
               <tr>
                 {[
                   "Sender",
@@ -56,42 +56,42 @@ const Table = ({ setCreateShipmentModal, allShipmentData }: TableProps) => {
                   <th
                     key={header}
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"
                   >
                     {header}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-gray-900 divide-y divide-gray-800">
               {allShipmentData?.length ? (
                 allShipmentData.map((shipment, index) => (
                   <tr
                     key={index}
-                    className="hover:bg-gray-50 transition-colors duration-150"
+                    className="hover:bg-gray-800 transition-colors duration-150"
                   >
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                       <span className="font-mono">
                         {shipment.sender.slice(0, 6)}...
                         {shipment.sender.slice(-4)}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                       <span className="font-mono">
                         {shipment.receiver.slice(0, 6)}...
                         {shipment.receiver.slice(-4)}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                       {convertTime(Number(shipment.pickupTime))}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                       {shipment.distance.toString()} km
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                       ${Number(shipment.price).toFixed(2)}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                       {shipment.deliveryTime
                         ? convertTime(Number(shipment.deliveryTime))
                         : "-"}
@@ -100,8 +100,8 @@ const Table = ({ setCreateShipmentModal, allShipmentData }: TableProps) => {
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-medium ${
                           shipment.isPaid
-                            ? "bg-green-100 text-green-800"
-                            : "bg-yellow-100 text-yellow-800"
+                            ? "bg-green-700/30 text-green-300"
+                            : "bg-yellow-700/30 text-yellow-300"
                         }`}
                       >
                         {shipment.isPaid ? "Paid" : "Pending"}
@@ -111,10 +111,10 @@ const Table = ({ setCreateShipmentModal, allShipmentData }: TableProps) => {
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-medium ${
                           shipment.status === BigInt(0)
-                            ? "bg-gray-100 text-gray-800"
+                            ? "bg-gray-700/40 text-gray-300"
                             : shipment.status === BigInt(1)
-                            ? "bg-blue-100 text-blue-800"
-                            : "bg-green-100 text-green-800"
+                            ? "bg-blue-700/30 text-blue-300"
+                            : "bg-green-700/30 text-green-300"
                         }`}
                       >
                         {shipment.status === BigInt(0)
@@ -130,7 +130,7 @@ const Table = ({ setCreateShipmentModal, allShipmentData }: TableProps) => {
                 <tr>
                   <td
                     colSpan={8}
-                    className="px-6 py-4 text-center text-sm text-gray-500"
+                    className="px-6 py-4 text-center text-sm text-gray-400"
                   >
                     No shipments found. Create your first shipment to get
                     started.

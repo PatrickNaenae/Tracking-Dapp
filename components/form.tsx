@@ -35,6 +35,10 @@ const Form = ({
   };
 
   const createShipmentHandler = async () => {
+    if (shipment.pickupTime <= 0) {
+      alert("Pickup time must be in the future!");
+      return;
+    }
     try {
       setIsSubmitting(true);
       await createShipment(shipment);
@@ -52,34 +56,31 @@ const Form = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black bg-opacity-50 transition-opacity"
+        className="absolute inset-0 bg-black bg-opacity-60"
         onClick={() => setCreateShipmentModal(false)}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-md bg-white rounded-xl shadow-xl overflow-hidden">
+      <div className="relative w-full max-w-md bg-gray-900 text-gray-200 rounded-xl shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-gray-200">
+        <div className="px-6 py-4 border-b border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">
-                Create New Shipment
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">
+              <h3 className="text-xl font-semibold">Create New Shipment</h3>
+              <p className="mt-1 text-sm text-gray-400">
                 Track your product with real-time updates
               </p>
             </div>
             <button
               onClick={() => setCreateShipmentModal(false)}
-              className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+              className="p-1 rounded-md hover:bg-gray-800 transition-colors"
               aria-label="Close"
             >
               <svg
-                className="w-6 h-6 text-gray-500"
+                className="w-6 h-6 text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"
@@ -104,15 +105,15 @@ const Form = ({
               <div>
                 <label
                   htmlFor="receiver"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium mb-1"
                 >
                   Receiver Address
                 </label>
                 <input
                   id="receiver"
                   type="text"
-                  placeholder="Enter receiver's wallet address (0x...)"
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  placeholder="0x123..."
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   value={shipment.receiver}
                   onChange={(e) =>
                     setShipment({ ...shipment, receiver: e.target.value })
@@ -124,15 +125,14 @@ const Form = ({
               <div>
                 <label
                   htmlFor="pickupTime"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium mb-1"
                 >
-                  Pickup Time (Unix timestamp)
+                  Pickup Time
                 </label>
                 <input
                   id="pickupTime"
                   type="datetime-local"
-                  placeholder="Enter pickup date and time"
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   value={pickupInput}
                   onChange={(e) => handlePickupChange(e.target.value)}
                   required
@@ -142,16 +142,15 @@ const Form = ({
               <div>
                 <label
                   htmlFor="distance"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium mb-1"
                 >
                   Distance (km)
                 </label>
                 <input
                   id="distance"
                   type="number"
-                  placeholder="Enter distance in kilometers"
                   min="0"
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   value={shipment.distance.toString()}
                   onChange={(e) =>
                     setShipment({
@@ -166,16 +165,15 @@ const Form = ({
               <div>
                 <label
                   htmlFor="price"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium mb-1"
                 >
                   Price (wei)
                 </label>
                 <input
                   id="price"
                   type="number"
-                  placeholder="Enter price in wei"
                   min="0"
-                  className="w-full px-4 py-2 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-gray-100 placeholder-gray-500 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   value={shipment.price.toString()}
                   onChange={(e) =>
                     setShipment({
@@ -192,14 +190,14 @@ const Form = ({
               <button
                 type="button"
                 onClick={() => setCreateShipmentModal(false)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-200 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 transition-colors"
                 disabled={isSubmitting}
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors disabled:opacity-75 disabled:cursor-not-allowed"
+                className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                 disabled={isSubmitting || !shipment.receiver}
               >
                 {isSubmitting ? (

@@ -69,7 +69,7 @@ export const TrackingProvider = ({ children }: { children: ReactNode }) => {
     signerOrProvider: ethers.Signer | ethers.Provider
   ): Promise<Tracking> => {
     return Tracking__factory.connect(
-      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "0xA8628931f4e3c6a972050079D098eA0c99B9C461",
       signerOrProvider
     );
   };
@@ -222,8 +222,9 @@ export const TrackingProvider = ({ children }: { children: ReactNode }) => {
         method: "eth_accounts",
       });
 
-      const provider = new ethers.JsonRpcProvider();
-      const contract = await fetchContract(provider);
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+      const contract = await fetchContract(signer);
       const shipment = await contract.getShipment(accounts[0], index);
 
       return {

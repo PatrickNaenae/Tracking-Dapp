@@ -66,13 +66,11 @@ const Services = ({
   };
 
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">
-            Our Services
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-3xl font-bold text-white mb-3">Our Services</h1>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Explore our comprehensive services to manage your shipments
             effectively and efficiently.
           </p>
@@ -83,10 +81,10 @@ const Services = ({
             <div
               key={index}
               onClick={() => openModalBox(service.modalType)}
-              className="group bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col"
+              className="group bg-gray-900 rounded-xl shadow-md border border-gray-800 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col"
             >
               <div className="p-5 flex-grow flex flex-col items-center text-center">
-                <div className="mb-4 w-20 h-20 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-100 transition-colors duration-300">
+                <div className="mb-4 w-20 h-20 rounded-full bg-indigo-800/20 flex items-center justify-center group-hover:bg-indigo-700/30 transition-colors duration-300">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -95,15 +93,15 @@ const Services = ({
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-sm flex-grow">
+                <p className="text-gray-400 text-sm flex-grow">
                   {service.description}
                 </p>
               </div>
-              <div className="px-5 py-3 bg-gray-50 border-t border-gray-200">
-                <button className="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition-colors duration-200">
+              <div className="px-5 py-3 bg-gray-800 border-t border-gray-700">
+                <button className="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors duration-200">
                   Learn more →
                 </button>
               </div>

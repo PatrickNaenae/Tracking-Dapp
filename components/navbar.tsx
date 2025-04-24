@@ -35,14 +35,14 @@ const Navbar = () => {
     { name: "Home", path: "#" },
     { name: "Services", path: "#" },
     { name: "Contact Us", path: "#" },
-    { name: "ERC20", path: "#" },
+    { name: "Blog", path: "#" },
   ];
 
   return (
     <nav
-      className={`bg-white pb-5 md:text-sm ${
+      className={`bg-gray-900 text-white pb-5 md:text-sm ${
         openProfile
-          ? "shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0"
+          ? "shadow-lg rounded-xl border border-gray-700 mx-2 mt-2 md:shadow-none md:border-none md:mx-0 md:mt-0"
           : ""
       }`}
     >
@@ -61,7 +61,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               type="button"
-              className="menu-btn text-gray-500 hover:text-gray-600"
+              className="menu-btn text-gray-400 hover:text-white"
               onClick={() => setOpenProfile(!openProfile)}
             >
               <span className="sr-only">Open main menu</span>
@@ -79,7 +79,7 @@ const Navbar = () => {
               <li key={item.name}>
                 <Link
                   href={item.path}
-                  className="text-gray-900 hover:text-gray-700"
+                  className="text-gray-300 hover:text-white transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -88,14 +88,14 @@ const Navbar = () => {
           </ul>
           <div className="flex-1 gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
             {currentUser ? (
-              <p className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex">
+              <p className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-700 hover:bg-gray-600 active:bg-gray-800 rounded-full md:inline-flex">
                 {currentUser.slice(0, 6)}...
                 {currentUser.slice(currentUser.length - 4)}
               </p>
             ) : (
               <button
                 type="button"
-                className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex"
+                className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 rounded-full md:inline-flex"
                 onClick={connectWallet}
               >
                 Connect Wallet <Nav3 />

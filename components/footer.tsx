@@ -2,6 +2,12 @@ import React from "react";
 import { Fot1, Fot2 } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 const Footer = () => {
   const footerNav = [
@@ -14,14 +20,14 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "Twitter", href: "#" },
-    { name: "Facebook", href: "#" },
-    { name: "Instagram", href: "#" },
-    { name: "LinkedIn", href: "#" },
+    { name: "Twitter", href: "#", icon: <FaXTwitter size={20} /> },
+    { name: "Facebook", href: "#", icon: <FaFacebookF size={20} /> },
+    { name: "Instagram", href: "#", icon: <FaInstagram size={20} /> },
+    { name: "LinkedIn", href: "#", icon: <FaLinkedinIn size={20} /> },
   ];
 
   return (
-    <footer className="bg-gray-50 pt-16 pb-12">
+    <footer className="bg-gray-950 pt-16 pb-12 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -34,24 +40,24 @@ const Footer = () => {
                 className="h-24 w-auto"
                 alt="Tracking Logo"
               />
-              <span className="ml-2 text-xl font-semibold text-gray-800">
+              <span className="ml-2 text-xl font-semibold text-white">
                 Tracking
               </span>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed text-gray-400 mb-6">
               Track your shipments and deliveries in real-time with our
               easy-to-use interface. Monitor package status, receive delivery
               notifications, and access detailed tracking.
             </p>
-            <div className="flex space-x-6">
+            <div className="flex space-x-5">
               {socialLinks.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-500 hover:text-gray-700 transition-colors"
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
                 >
                   <span className="sr-only">{item.name}</span>
-                  <span className="text-sm">{item.name}</span>
+                  {item.icon}
                 </Link>
               ))}
             </div>
@@ -59,7 +65,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -67,7 +73,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -78,7 +84,7 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
               Legal
             </h3>
             <ul className="space-y-3">
@@ -86,7 +92,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -97,7 +103,7 @@ const Footer = () => {
 
           {/* App Download */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
               Get the App
             </h3>
             <div className="space-y-3">
@@ -112,9 +118,10 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-8 border-t border-gray-800">
           <p className="text-xs text-gray-500 text-center">
-            © {new Date().getFullYear()} PatNae, Inc. All rights reserved.
+            © {new Date().getFullYear()} Patrick Naenae, Inc. All rights
+            reserved.
           </p>
         </div>
       </div>
